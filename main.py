@@ -6,6 +6,16 @@ class RobotAnalisis:
     def __init__(self, uploaded_file):
         try:
             self.df = pd.read_csv(uploaded_file, encoding='latin-1')
+            
+            
+            # DEFINISI KAMUS DEFAULT
+            # Ini setelan pabrik (Default)
+            self.kolom = {
+                'penjualan': 'Sales',
+                'keuntungan': 'Profit',
+                'tanggal': 'Order Date',
+                'kategori': 'Category'
+            }
             self.df['Order Date'] = pd.to_datetime(self.df['Order Date'], errors='coerce')
         except Exception as e:
             st.error(f"❌ Data gagal dimuat: {e}")
@@ -79,3 +89,4 @@ if uploaded_file is not None:
 else:
 
     st.info("👋 Silakan upload file CSV di sidebar untuk memulai.")
+
