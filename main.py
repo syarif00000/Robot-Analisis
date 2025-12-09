@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 
 class RobotAnalisis:
     def __init__(self, uploaded_file):
@@ -77,4 +77,5 @@ if uploaded_file is not None:
     st.markdown("---")
     robot.visualisasi_data()
 else:
+
     st.info("👋 Silakan upload file CSV di sidebar untuk memulai.")
